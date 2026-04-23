@@ -26,6 +26,10 @@ app.post("/requests", (req, res) => {
   res.json(request);
 });
 
+app.get("/requests", (req, res) => {
+  res.json(requests);
+});
+
 app.post("/routes", (req, res) => {
   const route = {
     id: Date.now(),

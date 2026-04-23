@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard - Destiny</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .nav-btn {
+      padding: 10px 20px;
+      border: 2px solid #4a90e2;
+      background: white;
+      color: #4a90e2;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .nav-btn:hover {
+      background: #4a90e2;
+      color: white;
+    }
+    
+    .nav-btn.active {
+      background: #4a90e2;
+      color: white;
+    }
+    
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Dashboard Title */
+    h1 {
+      color: #2c3e50;
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #4a90e2, #7b68ee);
+      border-radius: 2px;
+    }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #e0e6ed;
+      padding-bottom: 0;
+    }
+    
+    .tab {
+      padding: 12px 24px;
+      background: transparent;
+      border: none;
+      color: #6c757d;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    
+    .tab:hover {
+      color: #4a90e2;
+    }
+    
+    .tab.active {
+      color: #4a90e2;
+      border-bottom-color: #4a90e2;
+    }
+    
+    /* Tab Content */
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      color: #34495e;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    
+    .form-label .icon {
+      margin-right: 8px;
+      color: #4a90e2;
+      font-size: 18px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e0e6ed;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+      color: #2c3e50;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #4a90e2;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
+    
+    .form-input::placeholder {
+      color: #8492a6;
+    }
+    
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e0e6ed;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+      color: #2c3e50;
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .form-textarea:focus {
+      outline: none;
+      border-color: #4a90e2;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
+    
+    .form-textarea::placeholder {
+      color: #8492a6;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.25);
+      margin-top: 20px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.35);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    /* Request List */
+    .request-list {
+      list-style: none;
+    }
+    
+    .request-item {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 12px;
+      border-left: 4px solid #4a90e2;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .request-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .request-status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .status-confirmed {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-completed {
+      background: #d1ecf1;
+      color: #0c5460;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 25px;
+      }
+      
+      .navbar {
+        padding: 15px 20px;
+      }
+      
+      .nav-buttons {
+        gap: 10px;
+      }
+      
+      .nav-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      .tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      
+      .tab {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">Destiny</a>
+    <div class="nav-buttons">
+      <a href="#" class="nav-btn">Home</a>
+      <a href="#" class="nav-btn active">User</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h1>User Dashboard</h1>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('send-package')">Send Package</button>
+      <button class="tab" onclick="switchTab('request-ride')">Request Ride</button>
+      <button class="tab" onclick="switchTab('my-requests')">My Requests</button>
+    </div>
+    
+    <!-- Send Package Tab -->
+    <div id="send-package" class="tab-content active">
+      <form onsubmit="submitPackage(event)">
+        <div class="form-group">
+          <label class="form-label">
+            <span class="icon">📍</span>
+            Pickup Location
+          </label>
+          <input type="text" class="form-input" placeholder="Enter pickup location" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            <span class="icon">📍</span>
+            Drop Location
+          </label>
+          <input type="text" class="form-input" placeholder="Enter drop location" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Date
+          </label>
+          <input type="date" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Time
+          </label>
+          <input type="time" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Package Size
+          </label>
+          <select class="form-input" required>
+            <option value="">Select package size</option>
+            <option value="small">Small (Up to 2kg)</option>
+            <option value="medium">Medium (2-5kg)</option>
+            <option value="large">Large (5-10kg)</option>
+            <option value="xlarge">Extra Large (10kg+)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Package Details
+          </label>
+          <textarea class="form-textarea" placeholder="Describe your package contents" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Package</button>
+      </form>
+    </div>
+    
+    <!-- Request Ride Tab -->
+    <div id="request-ride" class="tab-content">
+      <form onsubmit="submitRide(event)">
+        <div class="form-group">
+          <label class="form-label">
+            <span class="icon">📍</span>
+            Pickup Location
+          </label>
+          <input type="text" class="form-input" placeholder="Enter pickup location" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            <span class="icon">📍</span>
+            Drop Location
+          </label>
+          <input type="text" class="form-input" placeholder="Enter drop location" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Date
+          </label>
+          <input type="date" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Time
+          </label>
+          <input type="time" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Number of Passengers
+          </label>
+          <select class="form-input" required>
+            <option value="">Select passengers</option>
+            <option value="1">1 Passenger</option>
+            <option value="2">2 Passengers</option>
+            <option value="3">3 Passengers</option>
+            <option value="4">4 Passengers</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">
+            Special Requirements
+          </label>
+          <textarea class="form-textarea" placeholder="Any special requirements or notes"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Request Ride</button>
+      </form>
+    </div>
+    
+    <!-- My Requests Tab -->
+    <div id="my-requests" class="tab-content">
+      <ul class="request-list">
+        <li class="request-item">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <strong>Package Delivery</strong>
+              <span class="request-status status-pending">Pending</span>
+              <p style="margin: 5px 0; color: #6c757d;">From: Downtown to Airport</p>
+              <p style="margin: 5px 0; color: #6c757d; font-size: 14px;">Date: 25-04-2026 | Time: 10:30 AM</p>
+            </div>
+          </div>
+        </li>
+        
+        <li class="request-item">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <strong>Ride Sharing</strong>
+              <span class="request-status status-confirmed">Confirmed</span>
+              <p style="margin: 5px 0; color: #6c757d;">From: Home to Office</p>
+              <p style="margin: 5px 0; color: #6c757d; font-size: 14px;">Date: 24-04-2026 | Time: 09:00 AM</p>
+            </div>
+          </div>
+        </li>
+        
+        <li class="request-item">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <strong>Package Delivery</strong>
+              <span class="request-status status-completed">Completed</span>
+              <p style="margin: 5px 0; color: #6c757d;">From: Mall to Home</p>
+              <p style="margin: 5px 0; color: #6c757d; font-size: 14px;">Date: 23-04-2026 | Time: 03:15 PM</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../js/user.js"></script>
+</body>
+</html>
