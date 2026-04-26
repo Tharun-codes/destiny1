@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destiny - Send Items Anywhere, Anytime</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-truck"></i>
+                    <span>Destiny</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#how-it-works" class="nav-link">How it Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" id="loginBtn">Login</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary" id="signupBtn">Sign Up</button>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Send Items Anywhere, <span class="text-gradient">Anytime</span></h1>
+                <p class="hero-subtitle">Connect with daily travelers and drivers for affordable, reliable delivery and ride services</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" id="sendItemBtn">
+                        <i class="fas fa-box"></i> Send an Item
+                    </button>
+                    <button class="btn btn-outline btn-large" id="requestRideBtn">
+                        <i class="fas fa-car"></i> Request a Ride
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Choose what you need - delivery or ride sharing</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="service-title">Package Delivery</h3>
+                    <p class="service-description">Send documents, packages, food, and more through our network of daily travelers</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Low cost delivery</li>
+                        <li><i class="fas fa-check"></i> Real-time tracking</li>
+                        <li><i class="fas fa-check"></i> Secure handling</li>
+                    </ul>
+                    <button class="btn btn-primary service-btn" id="deliveryServiceBtn">Send Package</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title">Ride Sharing</h3>
+                    <p class="service-description">Get affordable rides with daily commuters going your way</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cost-effective travel</li>
+                        <li><i class="fas fa-check"></i> Safe drivers</li>
+                        <li><i class="fas fa-check"></i> Flexible timing</li>
+                    </ul>
+                    <button class="btn btn-primary service-btn" id="rideServiceBtn">Request Ride</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How Destiny Works</h2>
+                <p class="section-subtitle">Simple steps to get your items delivered or request a ride</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="step-title">Request Service</h3>
+                    <p class="step-description">Enter pickup and delivery details, or your ride requirements</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="step-title">Get Matched</h3>
+                    <p class="step-description">Our system matches you with available riders or drivers going your way</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="step-title">Confirm & Track</h3>
+                    <p class="step-description">Confirm the match and track your delivery or ride in real-time</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="step-title">Rate & Review</h3>
+                    <p class="step-description">Complete the service and rate your experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2 class="benefits-title">Why Choose Destiny?</h2>
+                    <p class="benefits-subtitle">Revolutionizing local delivery and transportation</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h4>Affordable Rates</h4>
+                                <p>Up to 60% cheaper than traditional delivery services</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Quick Delivery</h4>
+                                <p>Same-day delivery with real-time tracking</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Secure & Safe</h4>
+                                <p>Verified riders and secure handling of your items</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-leaf"></i>
+                            <div>
+                                <h4>Eco-Friendly</h4>
+                                <p>Reduce carbon footprint by utilizing existing journeys</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefits-image">
+                    <div class="benefits-illustration">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Deliveries Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">Active Riders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Customer Satisfaction %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-truck"></i>
+                        <span>Destiny</span>
+                    </div>
+                    <p class="footer-description">Connecting communities through affordable delivery and ride sharing</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Package Delivery</a></li>
+                        <li><a href="#">Ride Sharing</a></li>
+                        <li><a href="#">Business Solutions</a></li>
+                        <li><a href="#">Become a Rider</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Destiny. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Destiny</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Login</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#" id="showSignup">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join Destiny</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupFullName">Full Name</label>
+                    <input type="text" id="signupFullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">Phone</label>
+                    <input type="tel" id="signupPhone">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#" id="showLogin">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="deliveryModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Send a Package</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="deliveryForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pickupAddress">Pickup Address</label>
+                        <input type="text" id="pickupAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryAddress">Delivery Address</label>
+                        <input type="text" id="deliveryAddress" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemDescription">Item Description</label>
+                        <input type="text" id="itemDescription" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemWeight">Weight (kg)</label>
+                        <input type="number" id="itemWeight" step="0.1" min="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="packageType">Package Type</label>
+                        <select id="packageType">
+                            <option value="document">Document</option>
+                            <option value="parcel">Parcel</option>
+                            <option value="food">Food</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maxPrice">Max Price (₹)</label>
+                        <input type="number" id="maxPrice" min="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryNotes">Additional Notes</label>
+                    <textarea id="deliveryNotes" rows="3"></textarea>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="urgentDelivery">
+                    <label for="urgentDelivery">Mark as Urgent</label>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Request Delivery</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="rideModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Request a Ride</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="rideForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pickupRideAddress">Pickup Address</label>
+                        <input type="text" id="pickupRideAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationAddress">Destination Address</label>
+                        <input type="text" id="destinationAddress" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passengers">Number of Passengers</label>
+                        <input type="number" id="passengers" min="1" max="4" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredTime">Preferred Time</label>
+                        <input type="datetime-local" id="preferredTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maxRidePrice">Max Price (₹)</label>
+                    <input type="number" id="maxRidePrice" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="rideNotes">Additional Notes</label>
+                    <textarea id="rideNotes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Request Ride</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
