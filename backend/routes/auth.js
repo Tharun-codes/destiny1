@@ -75,7 +75,7 @@ router.post('/register', [
 
 // Login user
 router.post('/login', [
-    body('email').isEmail().withMessage('Please provide a valid email'),
+    body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
     body('password').notEmpty().withMessage('Password is required')
 ], async (req, res) => {
     try {
@@ -88,12 +88,12 @@ router.post('/login', [
             });
         }
 
-        const { email, password } = req.body;
+        const { username, password } = req.body;
 
         // Find user
         const user = await sql`
             SELECT id, username, email, password_hash, full_name, phone, address, rating, total_deliveries, total_rides
-            FROM users WHERE email = ${email}
+            FROM users WHERE username = ${username}
         `;
 
         if (user.length === 0) {

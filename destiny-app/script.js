@@ -185,7 +185,7 @@ class DestinyApp {
     async handleLogin(form) {
         const formData = new FormData(form);
         const loginData = {
-            email: formData.get('email') || document.getElementById('loginEmail').value,
+            username: formData.get('username') || document.getElementById('loginUsername').value,
             password: formData.get('password') || document.getElementById('loginPassword').value
         };
 
